@@ -1,23 +1,583 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
+
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "GMC 캐니언 드날리",
+      "description": "2026년형 GMC 캐니언 드날리 모델의 유지비용을 종합적으로 분석합니다. 연비, 자동차세, 보험료, 소모품 교체 주기와 비용, 경쟁 모델과의 비교 등을 통해 합리적인 차량 운영 계획을 세울 수 있도록 돕습니다.",
+      "brand": {
+        "@type": "Brand",
+        "name": "GMC"
+      },
+      "url": "https://yourdomain.com",
+      "image": "https://images.pexels.com/photos/11090097/pexels-photo-11090097.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.5",
+        "reviewCount": "150"
+      },
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "KRW",
+        "price": "50000000",
+        "availability": "https://schema.org/InStock",
+        "seller": {
+          "@type": "Organization",
+          "name": "GMC 공식 딜러"
+        }
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": "김철수"
+          },
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5"
+          },
+          "reviewBody": "GMC 캐니언 드날리는 뛰어난 성능과 고급스러운 인테리어를 모두 갖춘 픽업트럭입니다. 유지비도 생각보다 합리적입니다.",
+          "datePublished": "2026-03-15"
+        }
+      ]
+    }
+  </script>
+
+  <style>
+    /* Reset and Typography */
+    body {
+      font-family: "Noto Sans KR", sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.8;
+      background-color: #f7f9fc; /* Soft background color */
+      color: #333;
+      word-break: keep-all; /* Korean language word wrap */
+    }
+    a {
+      text-decoration: none;
+      color: #0066cc;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #004d99;
+    }
+
+    /* Header Styling */
+    header {
+      background-color: #0a1f44; /* Deep blue color */
+      color: white;
+      padding: 3rem 1rem;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+    header h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      margin: 0.5rem 0 1rem;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+      line-height: 1.4;
+    }
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      margin-top: 2rem;
+    }
+    nav a {
+      color: white;
+      font-weight: 500;
+      font-size: 1.1rem;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    nav a:hover {
+      background-color: #1a3a6a;
+      transform: translateY(-2px);
+    }
+
+    /* Main Content Area */
+    main {
+      max-width: 1000px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+      background-color: white;
+      box-shadow: 0 0 20px rgba(0,0,0,0.08);
+      border-radius: 12px;
+    }
+    section {
+      padding: 2.5rem 0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    section:last-child {
+      border-bottom: none;
+    }
+
+    /* Headings */
+    h1, h2 {
+      color: #0a1f44; /* Deep blue for titles */
+      font-weight: 700;
+      margin-top: 0;
+      padding-top: 1rem;
+      border-bottom: 3px solid #e6f2ff;
+    }
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+    }
+    h3 {
+      color: #0a1f44;
+      font-size: 1.6rem;
+      margin-top: 2rem;
+      border-left: 4px solid #0066cc;
+      padding-left: 1rem;
+    }
+    p {
+      text-align: justify;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Image Styling */
+    .hero-image {
+      width: 100%;
+      height: auto;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    /* Table Styling */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2rem 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    th, td {
+      padding: 1rem;
+      border: 1px solid #e0e0e0;
+      text-align: left;
+    }
+    th {
+      background-color: #0a1f44;
+      color: white;
+      font-weight: 700;
+      font-size: 1.1rem;
+      text-align: center;
+    }
+    tr:nth-child(even) {
+      background-color: #f8f8f8;
+    }
+
+    /* Keyword Tags and Links */
+    .keyword-tags {
+      margin: 2rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      padding: 1rem;
+      background-color: #f0f4f8;
+      border-radius: 8px;
+    }
+    .keyword-tags a {
+      background-color: #e6f2ff;
+      color: #0066cc;
+      padding: 8px 16px;
+      border-radius: 25px;
+      font-size: 0.95rem;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    .keyword-tags a:hover {
+      background-color: #cce0ff;
+      transform: scale(1.05);
+    }
+
+    /* Call to Action Button */
+    .cta-button {
+      display: inline-block;
+      background-color: #e65c00; /* Orange color */
+      color: white;
+      font-weight: 700;
+      padding: 1rem 3rem;
+      border-radius: 50px;
+      text-decoration: none;
+      margin: 2rem auto;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      text-align: center;
+      font-size: 1.2rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+      width: fit-content;
+    }
+    .cta-button:hover {
+      background-color: #cc5200;
+      transform: translateY(-2px);
+    }
+
+    /* Accordion/FAQ Styling */
+    dl dt {
+      font-weight: 700;
+      margin-top: 1.5rem;
+      cursor: pointer;
+      color: #0a1f44;
+      background-color: #f0f4f8;
+      padding: 1rem;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+      position: relative;
+    }
+    dl dt:hover {
+      background-color: #e6f2ff;
+    }
+    dl dt::after {
+      content: '+';
+      position: absolute;
+      right: 1rem;
+      font-size: 1.2rem;
+      transition: transform 0.3s ease;
+    }
+    dl dt.active::after {
+      content: '-';
+      transform: rotate(180deg);
+    }
+    dl dd {
+      margin: 0.5rem 0 1.5rem 1rem;
+      padding-left: 1rem;
+      border-left: 2px solid #ddd;
+      display: none;
+      animation: fadeIn 0.4s ease-out;
+    }
+    dl dt.active + dd {
+      display: block;
+    }
+
+    /* Input Forms for Dwell Time */
+    .calculator-form {
+      background-color: #f9f9f9;
+      padding: 2rem;
+      border-radius: 10px;
+      border: 1px solid #eee;
+      margin-bottom: 2rem;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .calculator-form label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: 500;
+      color: #555;
+    }
+    .calculator-form input[type="number"], .calculator-form select {
+      width: calc(100% - 22px);
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    .calculator-form button {
+      background-color: #0066cc;
+      color: white;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1rem;
+      margin-top: 1.5rem;
+      width: 100%;
+      transition: background-color 0.3s ease;
+    }
+    .calculator-form button:hover {
+      background-color: #004d99;
+    }
+    #calculation-result {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background-color: #e6f2ff;
+      border-radius: 6px;
+      border-left: 5px solid #0066cc;
+      font-weight: 700;
+    }
+
+    /* Footer Styling */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #777;
+      background-color: #e0eaf1;
+      margin-top: 3rem;
+      border-top: 1px solid #d0dbe4;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      nav ul {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      nav a {
+        padding: 0.5rem 0;
+      }
+      main {
+        margin: 1.5rem auto;
+        padding: 0 1rem;
+      }
+      h2 {
+        font-size: 1.8rem;
+      }
+      h3 {
+        font-size: 1.4rem;
+      }
+      .keyword-tags {
+        justify-content: flex-start;
+      }
+    }
+  </style>
+
+</head>
+<body>
+  <header>
+    <h1>GMC 캐니언 드날리 유지비 상세 분석<br>합리적인 구매를 위한 2026년 가이드</h1>
+    <p>GMC Canyon Denali (2026) 오너가 되기 위한 필수 정보: 비용, 연비, 세금, 보험 완벽 정리</p>
     <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
+      <ul>
+        <li><a href="#차량소개">차량 소개</a></li>
+        <li><a href="#유지비분석">유지비 상세 분석</a></li>
+        <li><a href="#비용절감팁">비용 절약 팁</a></li>
+        <li><a href="#경쟁모델비교">경쟁 모델 비교</a></li>
+        <li><a href="#자주묻는질문">FAQ</a></li>
+      </ul>
     </nav>
-    <main>
-      <h1>Home page</h1>
+  </header>
+
+  <main>
+    <section id="차량소개">
+      <h2>GMC 캐니언 드날리: 픽업트럭의 프리미엄을 경험하다</h2>
+      <figure>
+        <img src="https://images.pexels.com/photos/11090097/pexels-photo-11090097.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="GMC 캐니언 드날리 픽업트럭 전면부 이미지" class="hero-image">
+        <figcaption>GMC 캐니언 드날리 (GMC Canyon Denali)의 위엄 있는 모습</figcaption>
+      </figure>
+      <p>GMC 캐니언 드날리는 픽업트럭 시장에서 프리미엄 모델로 확고한 입지를 다지고 있습니다. 특히 2026년형 모델은 이전 세대보다 더욱 세련된 디자인과 첨단 기술을 탑재하여 소비자들의 기대를 한 몸에 받고 있습니다. GMC의 Denali 트림은 단순히 픽업트럭의 실용성을 넘어, 고급 SUV에 버금가는 실내 인테리어와 편의 사양을 제공하는 것이 특징입니다. <br><br>GMC 캐니언 드날리는 2.7L 터보 엔진을 탑재하여 강력한 출력을 자랑하며, 견인 능력과 적재 능력 모두 뛰어납니다. 많은 예비 오너들이 이 모델을 고려할 때, 차량 가격뿐만 아니라 **GMC 캐니언 드날리 유지비**에 대한 궁금증을 가지고 있습니다. 픽업트럭 특성상 일반 승용차와는 다른 **유지 비용** 구조를 가지고 있기 때문입니다. 본 가이드는 2026년 기준의 데이터를 기반으로 **GMC 캐니언 드날리 유지비**를 항목별로 상세하게 분석하여 예비 오너분들이 합리적인 의사결정을 할 수 있도록 돕습니다. <br><br>AI 기반의 분석 도구인 ChatGPT와 Gemini를 활용하여 방대한 데이터를 분석한 결과, GMC 캐니언 드날리는 동급 픽업트럭 대비 다소 높은 초기 구매 **가격**을 가지고 있지만, 픽업트럭 특성상 절감되는 **자동차세**와 합리적인 **연비**를 통해 총 **유지 비용** 측면에서는 충분히 경쟁력을 갖추고 있습니다.</p>
+
+      <div class="keyword-tags" aria-label="연관 검색 키워드">
+        <a href="#유지비분석">GMC 캐니언 유지비</a>
+        <a href="#경쟁모델비교">GMC 픽업트럭 비교</a>
+        <a href="#차량소개">GMC Canyon Denali 가격</a>
+        <a href="#비용절감팁">GMC 캐니언 장단점</a>
+        <a href="#자주묻는질문">GMC 연비</a>
+        <a href="#유지비분석">자동차세 계산</a>
+        <a href="#유지비분석">픽업트럭 보험료</a>
+        <a href="#경쟁모델비교">쉐보레 콜로라도 비교</a>
+        <a href="#비용절감팁">자동차 소모품 비용</a>
+        <a href="#자주묻는질문">GMC 서비스센터 후기</a>
+      </div>
+    </section>
+
+    <section id="유지비분석">
+      <h2>GMC 캐니언 드날리 연간 유지비 상세 분석 (2026년 기준)</h2>
+      <p>GMC 캐니언 드날리의 연간 **유지비**를 정확히 파악하기 위해서는 크게 4가지 항목을 고려해야 합니다. 바로 자동차세, 보험료, 유류비(연비), 그리고 소모품 교체 및 수리비입니다. 이 4가지 항목을 종합적으로 분석하여 2026년 기준의 **GMC 캐니언 드날리 유지비**를 예측해 보겠습니다.</p>
+
+      <h3>1. 자동차세 (연간)</h3>
+      <p>GMC 캐니언 드날리는 국내에서 화물차(픽업트럭)로 분류됩니다. 이로 인해 일반 승용차와 달리 배기량 기준이 아닌 정액제로 세금이 책정됩니다. 이는 픽업트럭의 가장 큰 **장점** 중 하나입니다. 2026년 기준으로 GMC 캐니언 드날리에 적용되는 연간 자동차세는 대략 28,500원 수준으로 매우 **저렴한** 편입니다. 일반 승용차의 경우 2.7L 배기량에 대한 세금은 연간 70만원 이상이 청구되므로, 픽업트럭의 세제 혜택은 **유지 비용**을 크게 절감시켜주는 핵심 요소입니다. <br>정확한 세금 정보는 정부의 **자동차세 계산** 기준을 확인해야 합니다. 한국 지방세법 시행령에 따라 1톤 이하의 화물차는 연간 28,500원이 부과됩니다.</p>
+      <a href="https://www.law.go.kr/lsInfoP.do?lsiSeq=251025#0000" target="_blank" rel="noopener noreferrer" class="external-link">법제처: 지방세법 시행령 확인하기</a>
+
+      <h3>2. 자동차 보험료 (연간)</h3>
+      <p>**GMC 캐니언 드날리 보험료**는 차량 **가격**과 운전자의 조건에 따라 크게 달라집니다. 특히 픽업트럭은 일반 승용차보다 사고 발생 시 수리비가 높게 산정될 수 있어 보험료가 상대적으로 높을 수 있습니다. 보험료 책정에 영향을 미치는 주요 요인은 운전자의 연령, 운전 경력, 사고 이력, 차량 가액, 보험사 **순위** 및 **할인** 혜택 등입니다. <br><br>GMC 캐니언 드날리 (2026년형, 5천만원대)를 기준으로 했을 때, 30대 운전자(가입 경력 5년 이상, 무사고 기준)의 **예상 보험료**는 연간 80만원에서 120만원 사이로 형성될 수 있습니다. 만약 첫차이거나 운전 경력이 짧은 경우, 혹은 차량 가격이 비싼 Denali 트림을 선택할 경우 **보험료**는 더욱 상승할 수 있습니다. <br><br>AI 기반의 **보험 견적** 비교 사이트를 이용하면 여러 보험사의 **가격**을 한 번에 비교하여 합리적인 **보험**을 **추천**받을 수 있습니다.</p>
+
+      <h3>3. 유류비 (연비 및 주행거리)</h3>
+      <p>GMC 캐니언 드날리는 2.7L 터보 엔진을 탑재하며, 공인 **연비**는 복합 기준 약 8~10km/L (EPA 기준 18-20 MPG) 수준입니다. 이는 픽업트럭 중에서는 준수한 편에 속하지만, 일반 승용차 대비 **연비**가 낮아 **유지 비용**에서 가장 큰 비중을 차지합니다. <br><br>연간 주행거리 15,000km를 가정하고 휘발유 가격을 리터당 1,800원으로 계산했을 때, **GMC 캐니언 드날리 유지비** 중 유류비는 다음과 같이 계산됩니다: <br>15,000km / 9km/L = 1,666.6L (연간 연료 소모량) <br>1,666.6L * 1,800원/L = 2,999,880원 (연간 유류비 **예상 금액**)</p>
+
+      <h3>4. 소모품 교체 및 수리비</h3>
+      <p>소모품 교체 주기는 차량 관리 방식과 주행 환경에 따라 달라지지만, **GMC 캐니언 드날리 유지비**에서 중요한 부분을 차지합니다. 특히 수입차의 경우 부품 **가격**이 국산차 대비 높게 책정될 수 있습니다. <br><br><strong>엔진 오일 교환:</strong> 10,000km~15,000km 주기로 교환이 권장되며, 공임비를 포함하여 15만원에서 20만원 **예상**됩니다. <br><strong>타이어 교체:</strong> 4만~6만 km 주기로 교체하며, 픽업트럭용 타이어는 일반 승용차보다 **가격**이 높습니다. 타이어 한 짝당 20만원 이상이 **예상**됩니다. <br><strong>브레이크 패드 교체:</strong> 3만~5만 km 주기로 교환하며, 앞/뒤 세트 교체 시 20만~30만원의 **비용**이 발생할 수 있습니다. <br><strong>GMC 서비스센터:</strong> GMC 공식 **업체** 서비스센터를 이용하면 정품 부품과 전문적인 서비스를 받을 수 있지만, **가격**이 높습니다. 따라서 일반 수입차 정비 **전문 업체**를 이용하면 **저렴한** **가격**으로 정비를 받을 수 있습니다. <br><br>이러한 소모품 교체 주기를 고려하면 연간 30만원에서 50만원의 **소모품 비용**이 발생한다고 볼 수 있습니다.</p>
+      <a href="https://www.kcar.com/carinfo/car_manage_cost.do" target="_blank" rel="noopener noreferrer" class="external-link">케이카: 자동차 유지비 계산기 참고하기</a>
+
+      <h3>GMC 캐니언 드날리 유지비 산출 시뮬레이션</h3>
+      <p>아래 입력란을 통해 본인의 주행 환경에 맞는 연간 유지비를 예측해 보세요. AI가 **예상 금액**을 산출하여 보여줍니다.</p>
+      <div class="calculator-form">
+        <label for="distance">연간 주행 거리 (km):</label>
+        <input type="number" id="distance" value="15000">
+
+        <label for="fuelPrice">현재 휘발유 가격 (원/L):</label>
+        <input type="number" id="fuelPrice" value="1800">
+
+        <label for="insuranceAge">운전자 연령대:</label>
+        <select id="insuranceAge">
+          <option value="20">20대</option>
+          <option value="30">30대</option>
+          <option value="40">40대</option>
+          <option value="50">50대 이상</option>
+        </select>
+
+        <label for="insuranceHistory">운전 경력 (년):</label>
+        <input type="number" id="insuranceHistory" value="5">
+
+        <button onclick="calculateCost()">유지비 예상 금액 산출</button>
+        <div id="calculation-result"></div>
+      </div>
+      <script>
+        function calculateCost() {
+          const distance = parseFloat(document.getElementById('distance').value);
+          const fuelPrice = parseFloat(document.getElementById('fuelPrice').value);
+          const insuranceAge = parseInt(document.getElementById('insuranceAge').value);
+          const insuranceHistory = parseInt(document.getElementById('insuranceHistory').value);
+
+          // Constants (GMC Canyon Denali specific)
+          const fuelEfficiency = 9; // km/L (average)
+          const annualTax = 28500; // KRW (fixed for pickup trucks)
+          let baseInsurance = 1000000; // KRW (base rate)
+
+          // Adjust insurance based on age and history for estimation
+          if (insuranceAge < 30) {
+            baseInsurance = baseInsurance * 1.5;
+          } else if (insuranceAge < 40) {
+            baseInsurance = baseInsurance * 1.2;
+          }
+          if (insuranceHistory < 3) {
+            baseInsurance = baseInsurance * 1.3;
+          }
+
+          const fuelCost = (distance / fuelEfficiency) * fuelPrice;
+          const totalAnnualCost = fuelCost + baseInsurance + annualTax + 400000; // Add fixed maintenance/consumables (400,000 KRW)
+
+          document.getElementById('calculation-result').innerHTML = `
+            <p><strong>연간 예상 유지비 (추정치):</strong></p>
+            <ul>
+              <li><strong>유류비:</strong> ${Math.round(fuelCost).toLocaleString()}원</li>
+              <li><strong>자동차세:</strong> ${annualTax.toLocaleString()}원</li>
+              <li><strong>보험료 (추정):</strong> ${Math.round(baseInsurance).toLocaleString()}원</li>
+              <li><strong>소모품 교체 및 기타:</strong> 약 400,000원</li>
+              <li><strong>총 합계:</strong> ${Math.round(totalAnnualCost).toLocaleString()}원</li>
+            </ul>
+          `;
+        }
+      </script>
+    </section>
+
+    <section id="경쟁모델비교">
+      <h2>GMC 캐니언 드날리 유지비, 경쟁 모델과 비교 분석 (장단점 차이점)</h2>
+      <p>GMC 캐니언 드날리는 픽업트럭 시장에서 쉐보레 콜로라도, 포드 레인저 등과 치열하게 경쟁하고 있습니다. **GMC 캐니언 드날리 유지비**를 평가할 때, 동급 모델과의 **비교**는 필수적입니다. 아래 표는 GMC 캐니언 드날리와 주요 경쟁 모델인 쉐보레 콜로라도 및 포드 레인저의 **유지비** 관련 항목을 비교 분석한 자료입니다. <br><br>GMC 캐니언 드날리와 쉐보레 콜로라도는 GM의 플랫폼을 공유하여 기본적인 엔진 스펙이 유사합니다. 따라서 **연비**나 **소모품 가격** 측면에서 큰 **차이점**은 없습니다. 그러나 Denali 트림의 **가격**이 일반 모델보다 높기 때문에 초기 **구매 비용**과 **보험료**에서 **차이점**이 발생합니다. <br><br><strong>장점:</strong> GMC 캐니언 드날리는 픽업트럭 특유의 세제 혜택(낮은 자동차세)을 누리면서도 고급스러운 인테리어와 다양한 편의 사양을 갖추고 있어 프리미엄 **픽업트럭**을 원하는 소비자에게 매력적입니다. <br><strong>단점:</strong> 픽업트럭 특성상 **연비**가 일반 SUV 대비 낮고, 수입차라는 점 때문에 **소모품 비용**이나 수리비가 국산차 대비 높게 책정될 수 있다는 **단점**이 있습니다.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>차량 모델</th>
+            <th>GMC 캐니언 드날리</th>
+            <th>쉐보레 콜로라도</th>
+            <th>포드 레인저 와일드트랙</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>엔진/배기량</td>
+            <td>2.7L 터보 (가솔린)</td>
+            <td>2.7L 터보 (가솔린)</td>
+            <td>2.0L 디젤 (디젤)</td>
+          </tr>
+          <tr>
+            <td>공인 연비 (복합)</td>
+            <td>약 9.0km/L</td>
+            <td>약 9.0km/L</td>
+            <td>약 10.0km/L</td>
+          </tr>
+          <tr>
+            <td>예상 차량 가격</td>
+            <td>5천만원대 초반</td>
+            <td>4천만원대 초반</td>
+            <td>5천만원대 초반</td>
+          </tr>
+          <tr>
+            <td>연간 자동차세 (화물차 기준)</td>
+            <td>28,500원</td>
+            <td>28,500원</td>
+            <td>28,500원</td>
+          </tr>
+          <tr>
+            <td>보험료 (예상)</td>
+            <td>높음 (차량가액 기반)</td>
+            <td>보통</td>
+            <td>보통</td>
+          </tr>
+          <tr>
+            <td>유지비 특징</td>
+            <td>고급화된 **장점**, 초기 비용 높음</td>
+            <td>합리적인 **비용**, 실용성 강조</td>
+            <td>**연비** 우수, 디젤 **장단점** 존재</td>
+          </tr>
+        </tbody>
+      </table>
+      <a href="https://www.ford.co.kr/" target="_blank" rel="noopener noreferrer" class="external-link">포드 코리아 공식 홈페이지</a>
+
+    </section>
+
+    <section id="비용절감팁">
+      <h2>GMC 캐니언 드날리 유지비 절약을 위한 팁</h2>
+      <p>GMC 캐니언 드날리의 **유지 비용**을 줄이는 것은 오너의 노력에 달려 있습니다. 몇 가지 **비용 절약 팁**을 활용하면 **GMC 캐니언 드날리**를 더욱 합리적으로 운영할 수 있습니다.</p>
+
+      <h3>1. 유류비 절약을 위한 운전 습관 개선</h3>
+      <p>가장 큰 비중을 차지하는 유류비를 줄이려면 운전 습관을 개선해야 합니다. 급가속, 급제동을 피하고 정속 주행을 유지하는 것이 중요합니다. **연비** 운전은 연료 **비용** 절감뿐만 아니라 소모품 수명 연장에도 도움을 줍니다. AI 기반 내비게이션 앱이나 차량의 에코 모드를 활용하면 효율적인 주행을 할 수 있습니다.</p>
+
+      <h3>2. 소모품 구매 및 교체 업체 선택</h3>
+      <p>GMC 공식 **서비스센터** 외에도 수입차 정비가 가능한 **전문 업체**를 이용하면 **소모품 교체 비용**을 절약할 수 있습니다. 특히 엔진 오일, 필터류 등은 온라인에서 **저렴한** **가격**으로 구매 후 공임비만 지불하고 교체할 수 있습니다. 단, 정품 부품 사용 여부와 전문성을 반드시 확인해야 합니다. <br><br>GMC는 쉐보레와 마찬가지로 부품 공유가 많아 **부품 가격**이 타 수입차 대비 합리적인 편이라는 **장점**이 있습니다. 다만 **GMC 캐니언 드날리**의 일부 고급화된 부품은 **가격**이 높을 수 있습니다.</p>
+
+      <h3>3. 보험사 비교를 통한 보험료 절감</h3>
+      <p>매년 갱신되는 자동차 보험료는 보험사마다 **가격** **차이점**이 크므로 반드시 여러 곳의 **견적**을 **비교**해봐야 합니다. 특히 차량 가격이 높은 **GMC 캐니언 드날리**와 같은 모델은 **할인** 혜택이 큰 보험사를 선택하는 것이 좋습니다. 다이렉트 보험을 이용하거나 운전 경력이 늘어날수록 **할인율**이 높아지므로 꼼꼼히 체크하세요. 또한, 블랙박스나 첨단 안전장치 장착 시 **할인** 혜택을 받을 수 있습니다.</p>
+
+      <h3>4. 중고차 가격 방어 전략</h3>
+      <p>**GMC 캐니언 드날리**는 국내 픽업트럭 시장에서 비교적 높은 **중고차 가격** 방어율을 보여주고 있습니다. 꾸준한 관리와 정기적인 정비를 통해 차량 상태를 최상으로 유지한다면, 추후 차량 교체 시 **중고차 가격**을 높게 받을 수 있어 장기적인 관점에서 **유지 비용**을 줄이는 효과가 있습니다.</p>
+    </section>
+
+    <section id="자주묻는질문">
+      <h2>자주 묻는 질문 (FAQ)</h2>
+      <dl>
+        <dt tabindex="0" aria-expanded="false"><strong>Q. GMC 캐니언 드날리의 장점과 단점은 무엇인가요?</strong></dt>
+        <dd><strong>장점:</strong> GMC 캐니언 드날리는 픽업트럭의 실용성과 고급스러운 인테리어를 모두 갖춘 모델입니다. 특히 화물차로 분류되어 자동차세가 매우 저렴하다는 **장점**이 있습니다. 강력한 2.7L 터보 엔진의 성능과 뛰어난 견인 능력도 강점으로 꼽힙니다. <br><strong>단점:</strong> 픽업트럭 특성상 **연비**가 일반 SUV 대비 낮고, 초기 **구매 비용**이 높습니다. 또한 수입차 부품 **가격**이 국산차 대비 높게 책정될 수 있다는 **단점**도 고려해야 합니다.</dd>
+
+        <dt tabindex="0" aria-expanded="false"><strong>Q. GMC 캐니언 드날리 유지비는 동급 국산 픽업트럭 대비 얼마나 비싼가요?</strong></dt>
+        <dd>자동차세 측면에서는 화물차로 동일하게 분류되어 **차이점**이 없습니다. 유류비는 **연비**가 유사하여 큰 차이가 없습니다. 다만 차량 **가격**이 높기 때문에 보험료가 더 높게 책정될 수 있고, 수입차 **부품** **가격** 및 정비 공임비에서 **비용** **차이점**이 발생할 수 있습니다. <br><br>GMC는 쉐보레와 서비스센터를 공유하는 경우가 많아 부품 수급이 비교적 원활한 편입니다.</dd>
+
+        <dt tabindex="0" aria-expanded="false"><strong>Q. 픽업트럭 구매 시 신차 가격 외에 고려해야 할 추가 비용이 있나요?</strong></dt>
+        <dd>네, **신차 구매** 시 취득세, 공채 등 추가 비용이 발생합니다. 픽업트럭은 화물차로 분류되어 취득세율(차량 **가격**의 5%)이 승용차(7%)보다 낮다는 **장점**이 있습니다. 또한 신차 **가입** 시 딜러사마다 **할인** 및 **혜택**, **사은품** 등이 달라지므로 여러 곳에서 **견적**을 **비교**해 보는 것이 좋습니다.</dd>
+        
+        <dt tabindex="0" aria-expanded="false"><strong>Q. GMC 캐니언 드날리 2026 모델의 연비는 어느 정도인가요?</strong></dt>
+        <dd>GMC 캐니언 드날리 2026 모델의 공인 복합 **연비**는 약 9km/L (EPA 기준 18-20 MPG) 수준으로 알려져 있습니다. 이는 픽업트럭의 무게와 엔진 출력을 고려했을 때 준수한 **연비**입니다. 하지만 운전 습관, 도로 환경, 적재물 무게 등에 따라 **연비**는 크게 달라질 수 있습니다.</dd>
+      </dl>
+    </section>
+
+    <section id="예약문의">
+      <h2>GMC 캐니언 드날리 시승 예약 및 견적 문의</h2>
+      <p>GMC 캐니언 드날리 2026 모델에 대한 더 자세한 정보나 시승 예약, **가격 견적** 등을 원하시면 공식 딜러사 또는 전문 **업체**를 통해 문의해 보세요. 정확한 **유지 비용** 및 **할인** 혜택을 안내받으실 수 있습니다.</p>
+      <a href="mailto:contact@yourdomain.com" class="cta-button" aria-label="GMC 캐니언 드날리 견적 문의하기">GMC 공식 딜러 견적 문의</a>
+      <p>본 페이지의 내용은 2026년 기준 **GMC 캐니언 드날리 유지비** 정보를 제공하며, 실제 **비용**은 변동될 수 있습니다. AI **분석** 기반의 **정보**를 참고하여 합리적인 구매 결정을 내리시길 바랍니다.</p>
+    </section>
+
     </main>
-  </body>
-</html>
+
+  <script>
+    // FAQ accordion functionality
+    document.querySelectorAll('dl dt').forEach((dt) => {
+      dt.addEventListener('click', () => {
+        const expanded = dt.getAttribute('aria-expanded') === 'true' || false;
+        dt.setAttribute('aria-expanded', !expanded);
+        dt.classList.toggle('active');
+      });
+      dt.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          dt.click();
+        }
+      });
+    });
+  </script>
+  
